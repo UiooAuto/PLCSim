@@ -1,0 +1,5 @@
+C:\Users\zhang\Desktop\123\PLCSimulation.exe
+C:\Users\zhang\Desktop\123\PLCSimulation.dll
+C:\Users\zhang\Desktop\123\PLCSimulation.deps.json
+C:\Users\zhang\Desktop\123\PLCSimulation.runtimeconfig.json
+C:\Users\zhang\Desktop\123\PLCSimulation.pdb

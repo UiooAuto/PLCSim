@@ -12,7 +12,7 @@ namespace PLCSimulation
         {
             var localIp = "127.0.0.1";
             var localPort = 12289;
-            byte[] buffer = new byte[14];
+            byte[] buffer = new byte[1024];
 
             IPAddress ipAddress = IPAddress.Parse(localIp);
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -20,7 +20,16 @@ namespace PLCSimulation
             socket.Bind(ipEndPoint);
             socket.Listen(3);
 
-            Server[] servers = new Server[3];
+            Server server;
+
+            var clientSocket = socket.Accept();
+            server = new Server(clientSocket);
+
+            ThreadStart threadStart = new ThreadStart(server.plcSim);
+            Thread thread = new Thread(threadStart);
+            thread.Start();
+
+            /*Server[] servers = new Server[3];
             for (int i = 0; i < 3; i++)
             {
                 var clientSocket = socket.Accept();
@@ -29,12 +38,13 @@ namespace PLCSimulation
                 ThreadStart threadStart = new ThreadStart(servers[i].plcSim);
                 Thread thread = new Thread(threadStart);
                 thread.Start();
-            }
+            }*/
 
             while (true)
             {
                 var readLine = Console.ReadLine();
-                if (readLine == "10")
+                server.cmd = readLine;
+                /*if (readLine == "10")
                 {
                     servers[0].cmd = "11OK0000";
                 }else if (readLine == "11")
@@ -59,7 +69,7 @@ namespace PLCSimulation
                     {
                         server.cmd = "11OK0000";
                     }
-                }
+                }*/
             }
         }
     }

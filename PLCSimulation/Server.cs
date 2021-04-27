@@ -9,7 +9,7 @@ namespace PLCSimulation
     public class Server
     {
         public Socket socket;
-        public string cmd = "11OK0000\r\n";
+        public string cmd = "";
         public byte[] buffer = new byte[1024];
 
         public Server(Socket socket)
@@ -38,7 +38,6 @@ namespace PLCSimulation
                     {
                         var str = Encoding.ASCII.GetString(buffer);
                         var indexOf = str.IndexOf('\r');
-                        Console.WriteLine(str);
                         if (indexOf != -1)
                         {
                             str = str.Substring(0, indexOf);
@@ -51,7 +50,7 @@ namespace PLCSimulation
                         {
                             socket.Send(Encoding.ASCII.GetBytes(cmd));
                         }
-                        if (str == "01WWRD6032 01 0001")
+                        /*if (str == "01WWRD6032 01 0001")
                         {
                             Console.WriteLine("1-OK");
                         }
@@ -62,7 +61,7 @@ namespace PLCSimulation
                         if (str == "01WWRD10032 01 0001")
                         {
                             Console.WriteLine("3-OK");
-                        }
+                        }*/
                     }
                     Thread.Sleep(100);
                 }

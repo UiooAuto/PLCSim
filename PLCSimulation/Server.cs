@@ -50,6 +50,11 @@ namespace PLCSimulation
                         {
                             socket.Send(Encoding.ASCII.GetBytes(cmd));
                         }
+                        if (str == "01WWRD6032 01 0001")
+                        {
+                            cmd = "";
+                            Console.WriteLine("1-OK");
+                        }
                         /*if (str == "01WWRD6032 01 0001")
                         {
                             Console.WriteLine("1-OK");
@@ -63,7 +68,7 @@ namespace PLCSimulation
                             Console.WriteLine("3-OK");
                         }*/
                     }
-                    Thread.Sleep(100);
+                    //Thread.Sleep(10);
                 }
             }
         }

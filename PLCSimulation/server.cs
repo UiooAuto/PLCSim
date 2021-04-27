@@ -38,6 +38,7 @@ namespace PLCSimulation
                     {
                         var str = Encoding.ASCII.GetString(buffer);
                         var indexOf = str.IndexOf('\r');
+                        Console.WriteLine(str);
                         if (indexOf != -1)
                         {
                             str = str.Substring(0, indexOf);
@@ -46,10 +47,21 @@ namespace PLCSimulation
                         {
                             str = str.Substring(0, receive);
                         }
-                        /*Console.WriteLine(str);*/
                         if (str == "01WRDD6030 01" || str == "01WRDD8030 01" || str == "01WRDD10030 01")
                         {
                             socket.Send(Encoding.ASCII.GetBytes(cmd));
+                        }
+                        if (str == "01WWRD6032 01 0001")
+                        {
+                            Console.WriteLine("1-OK");
+                        }
+                        if (str == "01WWRD8032 01 0001")
+                        {
+                            Console.WriteLine("2-OK");
+                        }
+                        if (str == "01WWRD10032 01 0001")
+                        {
+                            Console.WriteLine("3-OK");
                         }
                     }
                     Thread.Sleep(100);

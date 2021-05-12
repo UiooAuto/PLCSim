@@ -10,24 +10,57 @@ namespace PLCSimulation
     {
         static void Main(string[] args)
         {
-            var localIp = "127.0.0.1";
-            var localPort = 12289;
-            byte[] buffer = new byte[1024];
+            var localIp1 = "127.0.0.1";
+            var localPort1 = 12289;
+            
+            var localIp2 = "127.0.0.1";
+            var localPort2 = 12290;
+            
+            var localIp3 = "127.0.0.1";
+            var localPort3 = 12291;
 
-            IPAddress ipAddress = IPAddress.Parse(localIp);
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPEndPoint ipEndPoint = new IPEndPoint(ipAddress, localPort);
-            socket.Bind(ipEndPoint);
-            socket.Listen(3);
+            IPAddress ipAddress1 = IPAddress.Parse(localIp1);
+            Socket socket1 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint ipEndPoint1 = new IPEndPoint(ipAddress1, localPort1);
+            socket1.Bind(ipEndPoint1);
+            socket1.Listen(1);
+            
+            IPAddress ipAddress2 = IPAddress.Parse(localIp2);
+            Socket socket2 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint ipEndPoint2 = new IPEndPoint(ipAddress2, localPort2);
+            socket2.Bind(ipEndPoint2);
+            socket2.Listen(1);
+            
+            IPAddress ipAddress3 = IPAddress.Parse(localIp3);
+            Socket socket3 = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPEndPoint ipEndPoint3 = new IPEndPoint(ipAddress3, localPort3);
+            socket3.Bind(ipEndPoint3);
+            socket3.Listen(1);
 
-            Server server;
+            Server server1;
+            Server server2;
+            Server server3;
 
-            var clientSocket = socket.Accept();
-            server = new Server(clientSocket);
+            var clientSocket1 = socket1.Accept();
+            server1 = new Server(clientSocket1);
+            
+            var clientSocket2 = socket2.Accept();
+            server2 = new Server(clientSocket2);
+            
+            var clientSocket3 = socket3.Accept();
+            server3 = new Server(clientSocket3);
 
-            ThreadStart threadStart = new ThreadStart(server.plcSim);
-            Thread thread = new Thread(threadStart);
-            thread.Start();
+            ThreadStart threadStart1 = new ThreadStart(server1.plcSim);
+            Thread thread1 = new Thread(threadStart1);
+            thread1.Start();
+            
+            ThreadStart threadStart2 = new ThreadStart(server2.plcSim);
+            Thread thread2 = new Thread(threadStart2);
+            thread2.Start();
+            
+            ThreadStart threadStart3 = new ThreadStart(server3.plcSim);
+            Thread thread3 = new Thread(threadStart3);
+            thread3.Start();
 
             /*Server[] servers = new Server[3];
             for (int i = 0; i < 3; i++)
@@ -43,33 +76,32 @@ namespace PLCSimulation
             while (true)
             {
                 var readLine = Console.ReadLine();
-                server.cmd = readLine;
-                /*if (readLine == "10")
+                //server.cmd = readLine;
+                if (readLine == "10")
                 {
-                    servers[0].cmd = "11OK0000";
+                    server1.cmd = "11OK0000";
                 }else if (readLine == "11")
                 {
-                    servers[0].cmd = "11OK0001";
+                    server1.cmd = "11OK0001";
                 }else if (readLine == "20")
                 {
-                    servers[1].cmd = "11OK0000";
+                    server2.cmd = "11OK0000";
                 }else if (readLine == "21")
                 {
-                    servers[1].cmd = "11OK0001";
+                    server2.cmd = "11OK0001";
                 }else if (readLine == "30")
                 {
-                    servers[2].cmd = "11OK0000";
+                    server3.cmd = "11OK0000";
                 }else if (readLine == "31")
                 {
-                    servers[2].cmd = "11OK0001";
+                    server3.cmd = "11OK0001";
                 }
                 else
                 {
-                    foreach (Server server in servers)
-                    {
-                        server.cmd = "11OK0000";
-                    }
-                }*/
+                    server1.cmd = "11OK0000";
+                    server2.cmd = "11OK0000";
+                    server3.cmd = "11OK0000";
+                }
             }
         }
     }

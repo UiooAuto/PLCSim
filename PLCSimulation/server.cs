@@ -24,6 +24,7 @@ namespace PLCSimulation
 
         private void serverThread(Socket socket, string cmdStr)
         {
+            string lastStr = "";
             while (true)
             {
                 lock (this)
@@ -38,7 +39,6 @@ namespace PLCSimulation
                     {
                         var str = Encoding.ASCII.GetString(buffer);
                         var indexOf = str.IndexOf('\r');
-                        Console.WriteLine(str);
                         if (indexOf != -1)
                         {
                             str = str.Substring(0, indexOf);
@@ -50,6 +50,21 @@ namespace PLCSimulation
                         if (str == "01WRDD6030 01" || str == "01WRDD8030 01" || str == "01WRDD10030 01")
                         {
                             socket.Send(Encoding.ASCII.GetBytes(cmd));
+                        }
+                        if (str == "01WWRD6030 01 0000")
+                        {
+                            cmd = "11OK0000\r\n";
+                            Console.WriteLine("1-Reset");
+                        }
+                        if (str == "01WWRD8030 01 0000")
+                        {
+                            cmd = "11OK0000\r\n";
+                            Console.WriteLine("2-Reset");
+                        }
+                        if (str == "01WWRD10030 01 0000")
+                        {
+                            cmd = "11OK0000\r\n";
+                            Console.WriteLine("3-Reset");
                         }
                         if (str == "01WWRD6032 01 0001")
                         {
@@ -63,8 +78,22 @@ namespace PLCSimulation
                         {
                             Console.WriteLine("3-OK");
                         }
+                        if (str == "01WWRD6032 01 0002")
+                        {
+                            Console.WriteLine("1-NG");
+                        }
+                        if (str == "01WWRD8032 01 0002")
+                        {
+                            Console.WriteLine("2-NG");
+                        }
+                        if (str == "01WWRD10032 01 0002")
+                        {
+                            Console.WriteLine("3-NG");
+                        }
+                        lastStr = str;
                     }
-                    Thread.Sleep(100);
+
+                    Thread.Sleep(10);
                 }
             }
         }

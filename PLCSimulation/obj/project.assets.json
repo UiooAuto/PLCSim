@@ -8,26 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\zhang\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\zhang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\XXYwork\\riderTest\\PLCSimulation\\PLCSimulation\\PLCSimulation.csproj",
+      "projectUniqueName": "D:\\XXYWORK\\riderTest\\PLCSimulation\\PLCSimulation\\PLCSimulation.csproj",
       "projectName": "PLCSimulation",
-      "projectPath": "D:\\XXYwork\\riderTest\\PLCSimulation\\PLCSimulation\\PLCSimulation.csproj",
+      "projectPath": "D:\\XXYWORK\\riderTest\\PLCSimulation\\PLCSimulation\\PLCSimulation.csproj",
       "packagesPath": "C:\\Users\\zhang\\.nuget\\packages\\",
-      "outputPath": "D:\\XXYwork\\riderTest\\PLCSimulation\\PLCSimulation\\obj\\",
+      "outputPath": "D:\\XXYWORK\\riderTest\\PLCSimulation\\PLCSimulation\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\zhang\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -67,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

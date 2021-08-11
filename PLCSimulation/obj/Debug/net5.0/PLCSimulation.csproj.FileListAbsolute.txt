@@ -5,7 +5,6 @@ D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\bin\Debug\net5.0\PLCSimulation.
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\bin\Debug\net5.0\PLCSimulation.dll
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\bin\Debug\net5.0\ref\PLCSimulation.dll
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\bin\Debug\net5.0\PLCSimulation.pdb
-D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.csprojAssemblyReference.cache
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.GeneratedMSBuildEditorConfig.editorconfig
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.AssemblyInfoInputs.cache
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.AssemblyInfo.cs
@@ -14,3 +13,4 @@ D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\ref\PLCSimulation.dll
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.pdb
 D:\XXYwork\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.genruntimeconfig.cache
+D:\XXYWORK\riderTest\PLCSimulation\PLCSimulation\obj\Debug\net5.0\PLCSimulation.csproj.AssemblyReference.cache

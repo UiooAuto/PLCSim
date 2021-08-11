@@ -37,19 +37,19 @@ namespace PLCSimulation
                 if (readLine == "10")
                 {
                     servers[0].cmd = "11OK0000";
-                }else if (readLine == "11")
+                }else if (readLine == "1")
                 {
                     servers[0].cmd = "11OK0001";
                 }else if (readLine == "20")
                 {
                     servers[1].cmd = "11OK0000";
-                }else if (readLine == "21")
+                }else if (readLine == "2")
                 {
                     servers[1].cmd = "11OK0001";
                 }else if (readLine == "30")
                 {
                     servers[2].cmd = "11OK0000";
-                }else if (readLine == "31")
+                }else if (readLine == "3")
                 {
                     servers[2].cmd = "11OK0001";
                 }

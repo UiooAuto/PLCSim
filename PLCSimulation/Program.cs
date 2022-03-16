@@ -8,6 +8,8 @@ namespace PLCSimulation
 {
     class Program
     {
+        public static Socket socket;
+        public static Server[] servers;
         static void Main(string[] args)
         {
             var localIp = "127.0.0.1";
@@ -15,13 +17,14 @@ namespace PLCSimulation
             byte[] buffer = new byte[14];
 
             IPAddress ipAddress = IPAddress.Parse(localIp);
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPEndPoint ipEndPoint = new IPEndPoint(ipAddress, localPort);
             socket.Bind(ipEndPoint);
-            socket.Listen(3);
+            setSocket(3);
+            //socket.Listen(3);
 
-            Server[] servers = new Server[3];
-            for (int i = 0; i < 3; i++)
+            //Server[] servers = new Server[3];
+            /*for (int i = 0; i < 3; i++)
             {
                 var clientSocket = socket.Accept();
                 servers[i] = new Server(clientSocket);
@@ -29,7 +32,8 @@ namespace PLCSimulation
                 ThreadStart threadStart = new ThreadStart(servers[i].plcSim);
                 Thread thread = new Thread(threadStart);
                 thread.Start();
-            }
+            }*/
+            
 
             while (true)
             {
@@ -53,13 +57,21 @@ namespace PLCSimulation
                 {
                     servers[2].cmd = "11OK0001";
                 }
-                else
-                {
-                    foreach (Server server in servers)
-                    {
-                        server.cmd = "11OK0000";
-                    }
-                }
+            }
+        }
+
+        public static void setSocket(int num)
+        {
+            socket.Listen(num);
+            servers = new Server[num];
+            for (int i = 0; i < num; i++)
+            {
+                var clientSocket = socket.Accept();
+                servers[i] = new Server(clientSocket);
+
+                ThreadStart threadStart = new ThreadStart(servers[i].plcSim);
+                Thread thread = new Thread(threadStart);
+                thread.Start();
             }
         }
     }

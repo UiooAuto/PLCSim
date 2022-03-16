@@ -47,7 +47,7 @@ namespace PLCSimulation
                         {
                             str = str.Substring(0, receive);
                         }
-                        if (str == "01WRDD6030 01" || str == "01WRDD8030 01" || str == "01WRDD10030 01")
+                        if (str == "01WRDD6030 01" || str == "01WRDD8030 01" || str == "01WRDD10030 01" || str == "01WRDD5950 01")
                         {
                             socket.Send(Encoding.ASCII.GetBytes(cmd));
                         }
@@ -65,6 +65,11 @@ namespace PLCSimulation
                         {
                             cmd = "11OK0000\r\n";
                             Console.WriteLine("3-Reset");
+                        }
+                        if (str == "01WWRD5950 01 0000")
+                        {
+                            cmd = "11OK0000\r\n";
+                            Console.WriteLine("TB-Reset");
                         }
                         if (str == "01WWRD6032 01 0001")
                         {
@@ -89,6 +94,22 @@ namespace PLCSimulation
                         if (str == "01WWRD10032 01 0002")
                         {
                             Console.WriteLine("3-NG");
+                        }
+                        if (str == "01WWRD5952 01 0001")
+                        {
+                            Console.WriteLine("TB-1");
+                        }
+                        if (str == "01WWRD5952 01 0002")
+                        {
+                            Console.WriteLine("TB-2");
+                        }
+                        if (str == "01WWRD5952 01 0003")
+                        {
+                            Console.WriteLine("TB-3");
+                        }
+                        if (str == "01WWRD5952 01 0004")
+                        {
+                            Console.WriteLine("TB-4");
                         }
                         lastStr = str;
                     }

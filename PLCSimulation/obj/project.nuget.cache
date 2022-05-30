@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A3aJSonSstWCsuHQvFIbRrn0fKYdf5wH1cxbz4XiilhgxwlZYEcKzr0qeteGN16UOwfRKxFrGqnb888U8BRx7Q==",
+  "dgSpecHash": "v949TtNrBlLJ9WuBi+3d6ZoDD7g98XBYHs3dOh6P+skopqcqy3/bgNVk68O5cpbaYCmFrESrdksVjvJN45NyeQ==",
   "success": true,
   "projectFilePath": "D:\\XXYWORK\\riderTest\\PLCSimulation\\PLCSimulation\\PLCSimulation.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\zhang\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
